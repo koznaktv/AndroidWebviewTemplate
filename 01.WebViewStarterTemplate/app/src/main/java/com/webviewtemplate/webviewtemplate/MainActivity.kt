@@ -9,10 +9,7 @@ import android.window.OnBackInvokedDispatcher
 import com.webviewtemplate.webviewtemplate.databinding.ActivityMainBinding
 
 class MainActivity : Activity() {
-    // you can make offline application with local file
-    private val applicationUrl = "file:///android_asset/index.html"
-    //or you can load url
-    //private val applicationUrl = "https://www.wikipedia.org/"
+    private val applicationUrl = "https://koznaktv.github.io/hok-store/"
     private lateinit var binding: ActivityMainBinding
     private lateinit var webView: WebView
 
@@ -22,7 +19,6 @@ class MainActivity : Activity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         webView = binding.webView
-
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             onBackInvokedDispatcher.registerOnBackInvokedCallback(
@@ -36,12 +32,9 @@ class MainActivity : Activity() {
             }
         }
 
-
         webView.settings.domStorageEnabled = true
         webView.settings.javaScriptEnabled = true
 
-
         webView.loadUrl(applicationUrl)
     }
-
 }
